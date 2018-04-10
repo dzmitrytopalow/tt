@@ -144,7 +144,7 @@ def check_username(message: types.Message):
 
 
 def send_info_to_admins(text: str):
-    bot.send_message(ADMIN_DIMA_ID, text, parse_mode='Markdown')
+    bot.send_message(ADMIN_DIMA_ID, text, parse_mode='Markdown', disable_notification=True)
 
 
 @bot.message_handler(content_types=['photo', 'text'], func=lambda message: db_access.get_user_state(message.from_user.id) == states.WRITE_TEXT_FOR_POST)
