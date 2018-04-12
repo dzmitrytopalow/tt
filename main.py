@@ -59,7 +59,7 @@ def get_types_publishing():
 @bot.message_handler(commands=['start'])
 def greeting(message: types.Message):
     keyboard = types.InlineKeyboardMarkup()
-    url_button = types.InlineKeyboardButton(text="Подписаться на топ-канал", url="https://t.me/brandplace")
+    url_button = types.InlineKeyboardButton(text="Подписаться на топ-канал", url="https://t.me/toptovarchannel")
     keyboard.add(url_button)
     bot.send_message(message.from_user.id, greeting_text, reply_markup=get_greeting_markup(),
                      parse_mode='Markdown')
