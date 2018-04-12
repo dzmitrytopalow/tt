@@ -78,7 +78,7 @@ def manual(message: types.Message):
                      reply_markup=markup)
 
 
-@bot.message_handler(func=lambda message: message.text == '💰Опубликовать💰')
+@bot.message_handler(func=lambda message: message.text == 'Опубликовать')
 def types_of_publish(message: types.Message):
     required = '🔴*ОБЯЗАТЕЛЬНО* надо создать никнейм. Это нужно для того, чтобы с тобой *смог* связаться ' \
                'покупатель🔴\n\n📝В телеграме заходим в Настройки(Settings) ▶️ Имя пользователя(Username)📝 '
