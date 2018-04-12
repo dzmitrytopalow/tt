@@ -34,7 +34,7 @@ def get_greeting_markup():
     markup.row('💰Опубликовать💰')
     markup.row('👀 Очередь на публикацию 👀')
     markup.row('⚡Правила⚡️', '🔥Инструкция для публикации🔥')
-    markup.row('🛠Связаться с админами🛠', '💻О разработчике💻')
+    markup.row('🛠Связаться с админами🛠')
     markup.resize_keyboard = True
     return markup
 
@@ -254,19 +254,6 @@ def rules(message: types.Message):
     bot.send_message(message.from_user.id, rule, parse_mode='Markdown')
 
 
-@bot.message_handler(func=lambda message: message.text == '💻О разработчике💻')
-def about_developer(message: types.Message):
-    about_me = 'German Nikolishin\n\nPython and .NET developer👨‍💻\nTelegram👉 @german_nikolishin\nGitHub👉 ' \
-               'https://github.com/SkymanOne\nVK👉 https://vk.com/german_it\nInst👉 ' \
-               'https://www.instagram.com/german.nikolishin/\nTelegram Channel👉 https://t.me/VneUrokaDev '
-    keyboard = types.InlineKeyboardMarkup()
-    telegram_button = types.InlineKeyboardButton('🔷 Telegram Profile 🔷', url='t.me/german_nikolishin')
-    vk_button = types.InlineKeyboardButton('🔷 VK 🔷', url='https://vk.com/german_it')
-    inst_button = types.InlineKeyboardButton('🔶 Inst 🔶', url='https://www.instagram.com/german.nikolishin/')
-    github_button = types.InlineKeyboardButton('⚡️ GitHub ⚡️', url='https://github.com/SkymanOne')
-    channel_button = types.InlineKeyboardButton('💠 Telegram Channel 💠', url='https://t.me/SkyMenDev')
-    keyboard.add(github_button, vk_button, inst_button, telegram_button, channel_button)
-    bot.send_message(message.from_user.id, about_me, reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == '🛠Связаться с админами🛠')
