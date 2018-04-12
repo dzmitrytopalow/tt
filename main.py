@@ -32,16 +32,15 @@ greeting_text = '*Добро пожаловать!*🏼\n\nДля того, чт
 def get_greeting_markup():
     markup = types.ReplyKeyboardMarkup()
     markup.row('Опубликовать')
-    markup.row('Очередь на публикацию ')
+    markup.row('Очередь на публикацию')
     markup.row('Правила', 'Инструкция для публикации')
-    markup.row('🛠Связаться с админами🛠')
     markup.resize_keyboard = True
     return markup
 
 
 def get_types_publishing():
     markup = types.ReplyKeyboardMarkup()
-    markup.row('💫Бесплатная публикация💫 (free)')
+    markup.row('Бесплатная публикация')
     markup.row('💵Закреплённый пост💵 (300 руб.)')
     markup.row('💶Пост вне очереди💶 (150 руб.)')
     markup.row('Главное меню📲')
@@ -91,7 +90,7 @@ def types_of_publish(message: types.Message):
                          reply_markup=get_types_publishing())
 
 
-@bot.message_handler(func=lambda message: message.text == '💫Бесплатная публикация💫 (free)'
+@bot.message_handler(func=lambda message: message.text == 'Бесплатная публикация'
                      or message.text == '💵Закреплённый пост💵 (300 руб.)'
                      or message.text == '💶Пост вне очереди💶 (150 руб.)')
 def check_username(message: types.Message):
@@ -222,7 +221,7 @@ def add_photo(message: types.Message):
                          parse_mode='Markdown', reply_markup=markup)
 
 
-@bot.message_handler(func=lambda message: message.text == '👀 Очередь на публикацию 👀')
+@bot.message_handler(func=lambda message: message.text == 'Очередь на публикацию')
 def queue_of_post(message: types.Message):
     all_posts = db_access.get_all_posts().count()
     fixed_post = db_access.get_all_fixed_post().count()
@@ -245,7 +244,7 @@ def manual_create_post(message: types.Message):
     bot.send_message(message.from_user.id, 'http://telegra.ph/2-Kak-vylozhitnajti-shmot-03-06')
 
 
-@bot.message_handler(func=lambda message: message.text == '⚡Правила⚡️')
+@bot.message_handler(func=lambda message: message.text == 'Правила')
 def rules(message: types.Message):
     rule = '*Дорогие* подписчики и гости канала, спешим донести до вас правила нашей торговой площадки.\nВ целях ' \
            'сохранения актуальности информации, каждый пост будет выходить с интервалом в 1 час, в порядке очереди. ' \
@@ -254,13 +253,6 @@ def rules(message: types.Message):
     bot.send_message(message.from_user.id, rule, parse_mode='Markdown')
 
 
-
-
-@bot.message_handler(func=lambda message: message.text == '🛠Связаться с админами🛠')
-def connect_to_admins(message: types.Message):
-    info = '❓Если возникли какие-то вопросы, то их можно задать одному из администраторов канала❓\n\n📲 @ogan3s\n\n📲 ' \
-           '@code1n '
-    bot.send_message(message.from_user.id, info)
 
 
 # -------- end of main path --------
