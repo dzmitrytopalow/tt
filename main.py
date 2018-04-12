@@ -31,10 +31,9 @@ greeting_text = '*Добро пожаловать!*🏼\n\nДля того, чт
 
 def get_greeting_markup():
     markup = types.ReplyKeyboardMarkup()
-    markup.row('💰Опубликовать💰')
-    markup.row('👀 Очередь на публикацию 👀')
+    markup.row('Опубликовать')
+    markup.row('Очередь на публикацию ')
     markup.row('⚡Правила⚡️', '🔥Инструкция для публикации🔥')
-    markup.row('🛠Связаться с админами🛠')
     markup.resize_keyboard = True
     return markup
 
@@ -256,11 +255,6 @@ def rules(message: types.Message):
 
 
 
-@bot.message_handler(func=lambda message: message.text == '🛠Связаться с админами🛠')
-def connect_to_admins(message: types.Message):
-    info = '❓Если возникли какие-то вопросы, то их можно задать одному из администраторов канала❓\n\n📲 @ogan3s\n\n📲 ' \
-           '@code1n '
-    bot.send_message(message.from_user.id, info)
 
 
 # -------- end of main path --------
