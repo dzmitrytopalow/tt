@@ -21,8 +21,8 @@ server = Flask(__name__)
 ADMIN_DIMA_ID = 243041479
 
 
-greeting_text = '*Добро пожаловать, модник!*😎🤙🏼\n\nДля того, чтобы опубликовать свой рарный айтем нужно быть ' \
-                'подписанным на наш канал!\n\n👉️ *@BrandPlace* 👈️ '
+greeting_text = '*Добро пожаловать!*🏼\n\nДля того, чтобы опубликовать свой  айтем нужно быть ' \
+                'подписанным на наш канал:\n\n *@toptovarchannel*  '
 
 
 # -------- end of variables path --------
@@ -31,10 +31,10 @@ greeting_text = '*Добро пожаловать, модник!*😎🤙🏼\n\
 
 def get_greeting_markup():
     markup = types.ReplyKeyboardMarkup()
-    markup.row('💰Опубликовать💰')
-    markup.row('👀 Очередь на публикацию 👀')
-    markup.row('⚡Правила⚡️', '🔥Инструкция для публикации🔥')
-    markup.row('🛠Связаться с админами🛠', '💻О разработчике💻')
+    markup.row('Опубликовать')
+    markup.row(' Очередь на публикацию ')
+    markup.row('Правила', 'Инструкция для публикации')
+    markup.row('Связаться с админами')
     markup.resize_keyboard = True
     return markup
 
