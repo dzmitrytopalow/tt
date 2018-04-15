@@ -245,12 +245,9 @@ def manual_create_post(message: types.Message):
 
 
 @bot.message_handler(func=lambda message: message.text == 'Правила')
-def rules(message: types.Message):
-    rule = '*Дорогие подписчики и гости канала, спешим донести до вас правила нашей торговой площадки.*\n*В целях ' \
-           'сохранения актуальности информации, каждый пост будет выходить с интервалом в 1 час, в порядке очереди.* ' \
-           '*Для того, чтобы опубликовать пост с вашим айтемом, нужно перейти в главное меню бота и нажать на кнопку* ' \
-           '\n«Опубликовать»\n\n❌За попытку продажи/продажу не оригинального предмета - выдаётся *бан*.❌ '
-    bot.send_message(message.from_user.id, rule, parse_mode='Markdown')
+def manual_create_post(message: types.Message):
+    bot.send_message(message.from_user.id, 'http://telegra.ph/Kak-sdelat-publikaciyu-obyavleniya-04-15')
+
 
 
 
