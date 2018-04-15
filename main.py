@@ -246,7 +246,7 @@ def manual_create_post(message: types.Message):
 
 @bot.message_handler(func=lambda message: message.text == 'Правила')
 def manual_create_post(message: types.Message):
-    bot.send_message(message.from_user.id, 'http://telegra.ph/Kak-sdelat-publikaciyu-obyavleniya-04-15')
+    bot.send_message(message.from_user.id, 'http://telegra.ph/Pravila-publikacii-obyavleniya-04-15')
 
 
 
