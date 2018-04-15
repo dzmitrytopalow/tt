@@ -96,8 +96,8 @@ def types_of_publish(message: types.Message):
 def check_username(message: types.Message):
     username = message.from_user.username
     if username is None:
-        bot.send_message(message.from_user.id, '*У тебя не создан USERNAME❌*\nСоздай его и попробуй снова\n'
-                                               'инструкция: http://telegra.ph/1-Sozdayom-nickname-03-06',
+        bot.send_message(message.from_user.id, '*У вас не создан USERNAME❌*\nСоздайте его и попробуйте снова\n'
+                                               'инструкция: http://telegra.ph/Sozdayom-nickname-04-15',
                          parse_mode='Markdown')
     else:
         user = db_access.get_user(message.from_user.id)
@@ -158,22 +158,22 @@ def reg_production(message: types.Message):
                 markup = types.ReplyKeyboardMarkup()
                 markup.row('Отмена')
                 markup.resize_keyboard = True
-                bot.send_message(message.from_user.id, 'Такс😌, супер, теперь отправь несколько фото📷,'
+                bot.send_message(message.from_user.id, 'Отправьте  несколько фото📷,'
                                                        ' *но по одному* 1️⃣',
                                  parse_mode='Markdown', reply_markup=markup)
                 db_access.set_user_state(message.from_user.id, states.ADD_PHOTO)
             else:
                 bot.send_message(message.from_user.id, 'Упс 🙄, что-то пошло не так😒')
         else:
-            bot.send_message(message.from_user.id, 'Такс, такс, в твоем описании товара слишком *мало символов* 😏'
-                                                   ' или такое описание *уже существует* 🙄',
+            bot.send_message(message.from_user.id, 'В описании товара слишком *мало символов* '
+                                                   '',
                              parse_mode='Markdown')
-            bot.send_message(message.from_user.id, 'Пришли текст еще раз 👉')
+            bot.send_message(message.from_user.id, 'Пришлите текст еще раз 👉')
     elif message.text == 'Отмена':
         db_access.set_user_state(message.from_user.id, states.NONE_STATE)
         bot.send_message(message.from_user.id, 'Публикация отменена❌', reply_markup=get_greeting_markup())
     else:
-        bot.send_message(message.from_user.id, 'Ну слушай, первым отправляем текст о товаре, фотки чутка позже 😉')
+        bot.send_message(message.from_user.id, 'Для начала напишите описание , затем присылайте фотографии.')
 
 
 @bot.message_handler(content_types=['photo', 'text'],
@@ -236,12 +236,12 @@ def queue_of_post(message: types.Message):
 
 @bot.message_handler(func=lambda message: message.text == '1️⃣ Создаем nickname')
 def manual_create_nickname(message: types.Message):
-    bot.send_message(message.from_user.id, 'http://telegra.ph/1-Sozdayom-nickname-03-06')
+    bot.send_message(message.from_user.id, 'http://telegra.ph/Sozdayom-nickname-04-15')
 
 
 @bot.message_handler(func=lambda message: message.text == '2️⃣ Инструкция публикации поста')
 def manual_create_post(message: types.Message):
-    bot.send_message(message.from_user.id, 'http://telegra.ph/2-Kak-vylozhitnajti-shmot-03-06')
+    bot.send_message(message.from_user.id, 'http://telegra.ph/Kak-sdelat-publikaciyu-obyavleniya-04-15')
 
 
 @bot.message_handler(func=lambda message: message.text == 'Правила')
