@@ -21,7 +21,7 @@ server = Flask(__name__)
 ADMIN_DIMA_ID = 243041479
 
 
-greeting_text = '*Добро пожаловать!*🏼\n\nДля того, чтобы опубликовать свой  айтем нужно быть ' \
+greeting_text = '*Добро пожаловать!*\n\nДля того, чтобы опубликовать свой  айтем нужно быть ' \
                 'подписанным на наш канал:\n\n *@toptovarchannel* 👈️ '
 
 
@@ -60,10 +60,7 @@ def greeting(message: types.Message):
     keyboard = types.InlineKeyboardMarkup()
     url_button = types.InlineKeyboardButton(text="Наш канал", url="https://t.me/toptovarchannel")
     keyboard.add(url_button)
-    bot.send_message(message.from_user.id, greeting_text, reply_markup=get_greeting_markup(),
-                     parse_mode='Markdown')
-    bot.send_message(message.from_user.id, 'подписаться:',
-                     parse_mode='Markdown', reply_markup=keyboard)
+    
 
 
 @bot.message_handler(func=lambda message: message.text == 'Инструкция для публикации')
