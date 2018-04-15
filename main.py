@@ -277,8 +277,8 @@ def parse_links(string: str):
 @bot.message_handler(commands=['admin'])
 def admin_greeting(message: types.Message):
     if message.from_user.id == ADMIN_DIMA_ID:
-        bot.send_message(message.from_user.id, 'Приветствую тебя, мой *повелитель* 🙌\n\nТы находишься в админ-панеле '
-                                               'бота *BrandBot*\n\nP.S. Функционал еще будет расширяться😏',
+        bot.send_message(message.from_user.id, 'Приветствую 🙌\n\nТы находишься в админ-панеле '
+                                               'бота \n\n',
                          parse_mode='Markdown', reply_markup=get_admin_panel_markup())
     else:
         bot.send_message(message.from_user.id, 'Прости😒, у тебя *недостаточно прав* для этой команды',
